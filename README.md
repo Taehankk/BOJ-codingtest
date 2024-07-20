@@ -1,5 +1,5 @@
 # BOJ-codingtest
 Repository for recording BOJ Algorithm problem solving
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?1514kth@naver.com=thundevistan&layout=compact&theme=tokyonight"><br><br>
-<img src="https://github-readme-stats.vercel.app/api?1514kth@naver.com=thundevistan&show_icons=true&theme=tokyonight">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Taehankk&layout=compact&theme=tokyonight"><br><br>
+<img src="https://github-readme-stats.vercel.app/api?username=Taehankk&show_icons=true&theme=tokyonight">
