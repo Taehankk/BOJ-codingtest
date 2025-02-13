@@ -54,12 +54,14 @@ public class Main {
     public static void partialGroup(int node) {
         int size = edges.get(node).size();
 
+        char nextIdx = group[node] == 'a' ? 'b' : 'a';
+
         int check;
         for (int i = 0; i < size; i++) {
             check = edges.get(node).get(i);
 
             if(group[check] == 0){
-                group[check] = group[node] == 'a' ? 'b' : 'a';
+                group[check] = nextIdx;
                 partialGroup(check);
             }else {
                 if(group[check] == group[node]){
