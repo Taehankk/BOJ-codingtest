@@ -8,7 +8,7 @@ public class Main {
     static int R, C, result;
     static char[][] board;
     static boolean[][] visited;
-    static Set<Character> set;
+    static boolean[] alphabet;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -20,7 +20,7 @@ public class Main {
 
         board = new char[R][C];
         visited = new boolean[R][C];
-        set = new HashSet<>();
+        alphabet = new boolean[26];
 
         String line = "";
         for (int i = 0; i < R; i++) {
@@ -31,29 +31,29 @@ public class Main {
         }
 
         result = 1;
-        set.add(board[0][0]);
+        alphabet[board[0][0] - 'A'] = true;
         visited[0][0] = true;
-        dfs(0, 0);
+        dfs(0, 0, 1);
 
         System.out.println(result);
     }
 
-    public static void dfs(int r, int c) {
+    public static void dfs(int r, int c, int cnt) {
         int nr, nc;
         for (int i = 0; i < 4; i++) {
             nr = r + dr[i];
             nc = c + dc[i];
 
             if (0 <= nr && nr < R && 0 <= nc && nc < C) {
-                if (!set.contains(board[nr][nc])) {
-                    set.add(board[nr][nc]);
+                if (!alphabet[board[nr][nc] - 'A']) {
+                    alphabet[board[nr][nc] - 'A'] = true;
                     visited[nr][nc] = true;
-                    dfs(nr, nc);
-                    set.remove(board[nr][nc]);
+                    dfs(nr, nc, cnt + 1);
+                    alphabet[board[nr][nc] - 'A'] = false;
                     visited[nr][nc] = false;
-                }else {
-                    if(set.size() > result) {
-                        result = set.size();
+                } else {
+                    if (cnt > result) {
+                        result = cnt;
                     }
                 }
             }
